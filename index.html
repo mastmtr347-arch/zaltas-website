@@ -32,15 +32,48 @@
 <body class="full">
     <div class="header">
         <h3> Welcome to Zaltas.cc! </h3>
-        <p> This is the official website of 
-            PGS
-            and 
-            KCP </p>
+        <p> This is the official website of PGS and KCP </p>
     </div>
     <div class="center">
         <h1 style="color:white;font-family: 'Segoe UI', 'Helvetica Neue', sans-serif"> 
             This site currently does not have functionality.
         </h1>
     </div>
+<div class="comment-section">
+  <h2>Leave a Comment</h2>
+  <form id="comment-form">
+    <label for="nickname">Nickname:</label>
+    <input type="text" id="nickname" name="nickname" required />
+
+    <label for="comment">Comment:</label>
+    <textarea id="comment" name="comment" required></textarea>
+
+    <button type="submit">Post Comment</button>
+  </form>
+</div>
+<script>
+    import { createClient } from '@supabase/supabase-js' 
+        const supabaseUrl = 'https://dbyvyvspkkhkkzucrmky.supabase.co' 
+        const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRieXZ5dnNwa2toa2t6dWNybWt5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcxNjc1NjksImV4cCI6MjA3Mjc0MzU2OX0.wGQhvVaDq51Qg8cYeQBdab3tnmir-QUPVHmzvL_4cyk
+        const supabase = createClient(supabaseUrl, supabaseKey)
+
+    document.getElementById('comment-form').addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const nickname = document.getElementById('nickname').value;
+      const comment = document.getElementById('comment').value;
+
+      const { data, error } = await supabase
+        .from('comments')
+        .insert([{ nickname, comment }]);
+
+      if (error) {
+        console.error('Insert failed:', error.message);
+      } else {
+        console.log('Comment added:', data);
+      }
+    });
+  </script>
+    
 </body>
 
