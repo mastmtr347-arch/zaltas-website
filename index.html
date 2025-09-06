@@ -42,7 +42,7 @@
 <div class="comment-section">
   <h2>Leave a Comment</h2>
   <form id="comment-form">
-    <label for="nickname">Nickname:</label>
+    <label for="nickname">Name:</label>
     <input type="text" id="nickname" name="nickname" required />
 
     <label for="comment">Comment:</label>
@@ -60,12 +60,12 @@
     document.getElementById('comment-form').addEventListener('submit', async function (event) {
       event.preventDefault();
 
-      const nickname = document.getElementById('nickname').value;
+      const name = document.getElementById('name').value;
       const comment = document.getElementById('comment').value;
 
       const { data, error } = await supabase
         .from('comments')
-        .insert([{ nickname, comment }]);
+        .insert([{ name, comment }]);
 
       if (error) {
         console.error('Insert failed:', error.message);
