@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <head>
     <link rel="shortcut icon" href="/favicon.ico">
@@ -19,13 +20,26 @@
         .center{
             flex:1;
             display:flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
         .goodfont{
-            text-align:center;
             color:rgb(255, 255, 255);
             font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+        }
+
+        .formgroup {
+            display: flex;
+            flex-direction: column;
+            margin: 10px;
+        }
+        .big-div{
+            flex:1;
+            display:flex;
+            flex-direction: row;
+            align-items:center;
+
         }
         
         * {
@@ -40,21 +54,25 @@
         <h3> Welcome to Zaltas.cc! </h3>
         <p> This is the official website of PGS and KCP </p>
     </div>
+<div class="big-div">
 <div class="comment-section center goodfont">
   <h2>Leave a Comment</h2>
   <form id="comment-form">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required />
-
-    <label for="comment">Comment:</label>
-    <textarea id="comment" name="comment" required></textarea>
-
+    <div class="formgroup">
+        </q><label for="name" style="margin:5px">Name:</label>
+        <input type="text" id="name" name="name" required />
+    </div>
+    <div class="formgroup">
+        <label for="comment" style="margin:5px">Comment:</label>
+        <textarea id="comment" name="comment" required></textarea>
+    </div>
     <button type="submit">Post Comment</button>
   </form>
 </div>
-<div class="center goodfont" id="comments-list" style="margin-top:20px; color:white; font-family: 'Segoe UI', sans-serif;">
+<div class="center goodfont" id="comments-list">
   <h3>All Comments</h3>
   <div id="comments-container"></div>
+</div>
 </div>
 <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
