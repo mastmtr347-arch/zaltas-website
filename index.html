@@ -71,7 +71,7 @@
       const div = document.createElement('div');
       div.style.borderBottom = '1px solid #888';
       div.style.padding = '5px 0';
-      div.innerHTML = `<strong>${c.nickname}</strong>: ${c.comment}`;
+      div.innerHTML = `<strong>${c.name}</strong>: ${c.comment}`;
       commentsContainer.appendChild(div);
     });
   }
@@ -102,7 +102,7 @@
         const div = document.createElement('div');
         div.style.borderBottom = '1px solid #888';
         div.style.padding = '5px 0';
-        div.innerHTML = `<strong>${c.nickname}</strong>: ${c.comment}`;
+        div.innerHTML = `<strong>${c.name}</strong>: ${c.comment}`;
         commentsContainer.appendChild(div);
       }
     )
@@ -112,12 +112,12 @@
   form.addEventListener('submit', async function (event) {
     event.preventDefault();
 
-    const nickname = document.getElementById('nickname').value;
+    const name = document.getElementById('name').value;
     const comment = document.getElementById('comment').value;
 
     const { error } = await supabase
       .from('comments')
-      .insert([{ nickname, comment }]);
+      .insert([{ name, comment }]);
 
     if (error) {
       console.error('Insert failed:', error.message);
