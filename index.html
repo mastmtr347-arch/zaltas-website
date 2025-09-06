@@ -22,6 +22,12 @@
             justify-content: center;
             align-items: center;
         }
+        .goodfont{
+            text-align:center;
+            color:rgb(255, 255, 255);
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+        }
+        
         * {
             margin: 0;
         }
@@ -34,7 +40,7 @@
         <h3> Welcome to Zaltas.cc! </h3>
         <p> This is the official website of PGS and KCP </p>
     </div>
-<div class="comment-section center">
+<div class="comment-section center goodfont">
   <h2>Leave a Comment</h2>
   <form id="comment-form">
     <label for="name">Name:</label>
@@ -46,7 +52,7 @@
     <button type="submit">Post Comment</button>
   </form>
 </div>
-<div id="comments-list" style="margin-top:20px; color:white; font-family: 'Segoe UI', sans-serif;">
+<div class="center goodfont" id="comments-list" style="margin-top:20px; color:white; font-family: 'Segoe UI', sans-serif;">
   <h3>All Comments</h3>
   <div id="comments-container"></div>
 </div>
