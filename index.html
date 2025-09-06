@@ -41,7 +41,7 @@
     </div>
 <div class="comment-section">
   <h2>Leave a Comment</h2>
-  <form id="comment-form">
+  <form id="comment-form" method="POST">
     <label for="nickname">Nickname:</label>
     <input type="text" id="nickname" name="nickname" required />
 
@@ -51,7 +51,7 @@
     <button type="submit">Post Comment</button>
   </form>
 </div>
-<script>
+<script type="module">
     import { createClient } from '@supabase/supabase-js' 
         const supabaseUrl = 'https://dbyvyvspkkhkkzucrmky.supabase.co' 
         const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRieXZ5dnNwa2toa2t6dWNybWt5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcxNjc1NjksImV4cCI6MjA3Mjc0MzU2OX0.wGQhvVaDq51Qg8cYeQBdab3tnmir-QUPVHmzvL_4cyk
